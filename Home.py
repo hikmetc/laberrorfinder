@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="Lab Error Finder", page_icon="📖")
+st.set_page_config(page_title="Lab Error Finder", page_icon="📖🧪🔍")
 import pandas as pd
 
 # --- Custom CSS for an enhanced aesthetic interface with a unified card layout ---
