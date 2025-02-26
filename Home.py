@@ -83,7 +83,7 @@ df = load_data(excel_file_path)
 
 if df is not None:
     # Choose search criteria: "Analyte" or "Laboratory errors"
-    search_by = st.selectbox("Search by", ["Analyte", "Laboratory errors"])
+    search_by = st.selectbox("**Search by**", ["Analyte", "Laboratory errors"])
     
     # Validate that the selected column exists in the DataFrame and get unique values
     if search_by in df.columns:
@@ -95,7 +95,7 @@ if df is not None:
         st.error(f"No data found for the column '{search_by}'. Please check your Excel file.")
     else:
         # Let the user choose a specific value from the dropdown
-        selected_value = st.selectbox(f"Select {search_by}", options)
+        selected_value = st.selectbox(f"**Select {search_by}**", options)
         
         if st.button("Search"):
             with st.spinner("Searching..."):
