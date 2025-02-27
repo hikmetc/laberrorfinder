@@ -147,3 +147,6 @@ if df is not None:
 st.write('---')
 st.info('*Developed by Hikmet Can Çubukçu, MD, PhD, MSc, EuSpLM*, contact: <hikmetcancubukcu@gmail.com>')
 
+st.info('*To enhance the application\'s comprehensiveness, I invite you to share any additional laboratory 
+errors you are aware of, along with supporting references from the scientific literature. 
+Please send your contributions to* <hikmetcancubukcu@gmail.com>')
