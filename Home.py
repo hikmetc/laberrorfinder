@@ -162,7 +162,7 @@ if st.session_state["show_proposal_form"]:
     # HTML form using Formspree (replace YOUR_FORMSPREE_FORM_ID with your actual form ID)
     form_html = """
         <form action="https://formspree.io/f/xpwpwzpw" method="POST" style="font-family: sans-serif; font-size: 14px;">
-        <label for="lab_error_type"><strong>Type of Laboratory Error:</strong></label><br>
+        <label for="lab_error_type"><strong>Laboratory Error:</strong></label><br>
         <input type="text" id="lab_error_type" name="lab_error_type" required style="width: 100%; padding: 8px;"><br><br>
         
         <label for="effect_test_results"><strong>Effect on Test Results:</strong></label><br>
