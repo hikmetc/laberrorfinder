@@ -165,7 +165,7 @@ if st.session_state["show_proposal_form"]:
         <label for="lab_error_type"><strong>Laboratory Error:</strong></label><br>
         <input type="text" id="lab_error_type" name="lab_error_type" required style="width: 100%; padding: 8px;"><br><br>
         
-        <label for="effect_test_results"><strong>Effect on Test Results:</strong></label><br>
+        <label for="effect_test_results"><strong>Impact on Test Results:</strong></label><br>
         <input type="text" id="effect_test_results" name="effect_test_results" required style="width: 100%; padding: 8px;"><br><br>
         
         <label for="affected_analyte"><strong>Affected Analyte:</strong></label><br>
