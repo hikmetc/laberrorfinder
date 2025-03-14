@@ -1,6 +1,10 @@
+# Developed by Hikmet Can Çubukçu, MD, PhD, MSc, EuSpLM
+
 import streamlit as st
-st.set_page_config(page_title="Lab Error Finder", page_icon="🔍")
 import pandas as pd
+import streamlit.components.v1 as components
+
+st.set_page_config(page_title="Lab Error Finder", page_icon="🔍")
 
 # --- Custom CSS for an enhanced aesthetic interface with a unified card layout ---
 st.markdown(
@@ -66,12 +70,10 @@ st.markdown(
 
 # Display the main title
 st.markdown("<h1 class='main-title'>Laboratory Error Finder</h1>", unsafe_allow_html=True)
-# st.info('*Developed by Hikmet Can Çubukçu, MD, PhD, MSc, EuSpLM*, contact: <hikmetcancubukcu@gmail.com>')
-    
-# Path to your Excel file
+
+# --- Load Data ---
 excel_file_path = "data/lab error list_v_20250308.xlsx"
 
-# Cache the loading of data for improved performance
 @st.cache_data
 def load_data(path):
     try:
@@ -140,14 +142,45 @@ if df is not None:
                 card_html += "</div></div>"
                 st.markdown(card_html, unsafe_allow_html=True)
 
-
-
-
-
+# --- Proposal Form ---
 st.write('---')
+st.write("  ")
 st.info('*Developed by Hikmet Can Çubukçu, MD, PhD, MSc, EuSpLM*, contact: <hikmetcancubukcu@gmail.com>')
+st.info("To enhance the application's comprehensiveness, please contribute any additional laboratory errors you are aware of, along with supporting references. Use the proposal form below to submit your contributions directly.")
 
-st.info("To enhance the application's comprehensiveness, I invite you to share any additional laboratory "
-        "errors you are aware of, along with supporting references from the scientific literature. "
-        "Please send your contributions to <hikmetcancubukcu@gmail.com>.")
+# Toggle for showing the proposal form
+if "show_proposal_form" not in st.session_state:
+    st.session_state["show_proposal_form"] = False
+
+if st.button("Propose New Laboratory Error"):
+    st.session_state["show_proposal_form"] = True
+
+if st.session_state["show_proposal_form"]:
+    #st.markdown("### Propose New Laboratory Error")
+    st.success("Please fill in the details below and click **Submit Proposal**. Your submission will be sent directly to **hikmetcancubukcu@gmail.com**")
+    
+    # HTML form using Formspree (replace YOUR_FORMSPREE_FORM_ID with your actual form ID)
+    form_html = """
+        <form action="https://formspree.io/f/xpwpwzpw" method="POST" style="font-family: sans-serif; font-size: 14px;">
+        <label for="lab_error_type"><strong>Type of Laboratory Error:</strong></label><br>
+        <input type="text" id="lab_error_type" name="lab_error_type" required style="width: 100%; padding: 8px;"><br><br>
+        
+        <label for="effect_test_results"><strong>Effect on Test Results:</strong></label><br>
+        <input type="text" id="effect_test_results" name="effect_test_results" required style="width: 100%; padding: 8px;"><br><br>
+        
+        <label for="affected_analyte"><strong>Affected Analyte:</strong></label><br>
+        <input type="text" id="affected_analyte" name="affected_analyte" required style="width: 100%; padding: 8px;"><br><br>
+        
+        <label for="reference"><strong>Reference:</strong></label><br>
+        <input type="text" id="reference" name="reference" required style="width: 100%; padding: 8px;"><br><br>
+        
+        <!-- Optional: Set a custom subject line for the email -->
+        <input type="hidden" name="_subject" value="New Laboratory Error Proposal">
+        
+        <input type="submit" value="Submit Proposal" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px;">
+        </form>
+    """
+    # Render the HTML form inside Streamlit
+    components.html(form_html, height=500)
+    st.session_state["show_proposal_form"] = False
 
