@@ -69,7 +69,8 @@ st.markdown(
 )
 
 # Display the main title
-st.markdown("<h1 class='main-title'>Laboratory Error Finder</h1>", unsafe_allow_html=True)
+st.image('./images/lab error finder head.png')
+#st.markdown("<h1 class='main-title'>Laboratory Error Finder</h1>", unsafe_allow_html=True)
 
 # --- Load Data ---
 excel_file_path = "data/lab error list_v_20250308.xlsx"
